@@ -6,7 +6,7 @@
     <title>Lanka 的专属相册</title>
     <style>
         body {
-            background-color: #fce4ec;
+            background-color: #fce4ec; /* 浅粉色背景 */
             font-family: '微软雅黑', sans-serif;
             margin: 0;
             padding: 40px 20px;
@@ -20,25 +20,30 @@
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            /* 自动适配手机和电脑屏幕，最小宽度220px */
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
             gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
         }
         .photo-card {
-            background: white;
-            padding: 10px;
+            background: #f5f5f5; /* 浅灰色背景，用来衬托照片 */
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            height: 260px; /* 固定卡片高度，保持相册整齐 */
+            display: flex; /* 使用 flex 布局让图片居中 */
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
         .photo-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* 鼠标悬停上浮效果 */
         }
         .photo-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+            max-width: 100%; /* 保证图片不超出卡片 */
+            max-height: 100%; /* 保证图片完整显示 */
+            object-fit: contain; /* 完整显示原图，不裁剪 */
             border-radius: 10px;
         }
         .back-link {
@@ -50,6 +55,10 @@
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #ad1457;
         }
     </style>
 </head>
@@ -58,24 +67,20 @@
     <h1>📸 Lanka 的日常相册</h1>
 
     <div class="gallery-grid">
-        <!-- 第一张照片（你已经找回来的那张） -->
+        <!-- 第一张照片 -->
         <div class="photo-card">
             <img src="https://github.com/user-attachments/assets/114d4feb-346e-4d23-9aa0-a06f5b208b2a" alt="照片1">
         </div>
 
-         <!-- 第二张照片（你已经找回来的那张） -->
+        <!-- 第二张照片 -->
         <div class="photo-card">
-            <img src="https://github.com/94lanka94-netizen/photo-album/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-09-28_201958_858.jpg?raw=true" alt="照片1">
+            <img src="https://github.com/94lanka94-netizen/photo-album/refs/heads/main/微信图片_2026-09-28_201958_858.jpg" alt="照片2">
         </div>
         
-        <!-- 如果你想加第二张照片，就把下面这三行解除注释（或者直接复制上面那段），换个链接 -->
-        <!-- 
-        <div class="photo-card">
-            <img src="这里放第二张照片的链接" alt="照片2">
-        </div>
-        -->
+        <!-- 以后要加第三张照片，就把上面这三行复制一份，换个链接放进来就行 -->
     </div>
 
+    <!-- 返回主页的按钮 -->
     <a href="https://94lanka94-netizen.github.io/NO.1-Lanka/" class="back-link">返回我的主页</a>
 
 </body>
