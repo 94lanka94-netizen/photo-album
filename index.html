@@ -6,59 +6,45 @@
     <title>Lanka 的专属相册</title>
     <style>
         body {
-            background-color: #fce4ec; /* 浅粉色背景 */
+            background-color: #fce4ec;
             font-family: '微软雅黑', sans-serif;
             margin: 0;
             padding: 40px 20px;
             text-align: center;
         }
-        h1 {
-            color: #d81b60;
-            margin-bottom: 40px;
-            font-size: 32px;
-            letter-spacing: 2px;
-        }
+        h1 { color: #d81b60; margin-bottom: 40px; font-size: 32px; }
+        
         .gallery-grid {
             display: grid;
-            /* 自动适配手机和电脑屏幕，最小宽度220px */
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
         }
         .photo-card {
-            background: #f5f5f5; /* 浅灰色背景，用来衬托照片 */
+            background: #f5f5f5;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            height: 260px; /* 固定卡片高度，保持相册整齐 */
-            display: flex; /* 使用 flex 布局让图片居中 */
+            height: 260px;
+            display: flex;
             align-items: center;
             justify-content: center;
             padding: 10px;
         }
-        .photo-card:hover {
-            transform: translateY(-5px); /* 鼠标悬停上浮效果 */
-        }
         .photo-card img {
-            max-width: 100%; /* 保证图片不超出卡片 */
-            max-height: 100%; /* 保证图片完整显示 */
-            object-fit: contain; /* 完整显示原图，不裁剪 */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             border-radius: 10px;
         }
         .back-link {
             display: inline-block;
-            margin-top: 40px;
             padding: 10px 25px;
             background-color: #d81b60;
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .back-link:hover {
-            background-color: #ad1457;
         }
     </style>
 </head>
@@ -72,87 +58,48 @@
             <img src="https://github.com/user-attachments/assets/114d4feb-346e-4d23-9aa0-a06f5b208b2a" alt="照片1">
         </div>
 
-        <!-- 第二张照片 -->
+        <!-- 第二张照片（用了你最新提供的干净链接） -->
         <div class="photo-card">
-            <img src="https://https://github.com/user-attachments/assets/ea8682f0-dae9-4f42-aaec-bc3540da58a9" alt="照片2">
+            <img src="https://github.com/user-attachments/assets/ea8682f0-dae9-4f42-aaec-bc3540da58a9" alt="照片2">
         </div>
-        
-        <!-- 以后要加第三张照片，就把上面这三行复制一份，换个链接放进来就行 -->
     </div>
 
     <!-- 返回主页的按钮 -->
     <a href="https://94lanka94-netizen.github.io/NO.1-Lanka/" class="back-link">返回我的主页</a>
 
-    <!-- 1. HTML 结构：一个隐藏的按钮 -->
-<button id="backToTopBtn" title="返回顶部">↑</button>
-
-<!-- 2. CSS 样式：控制按钮的长相和位置 -->
-<style>
-    #backToTopBtn {
-        display: none; /* 默认隐藏，没滑动时看不见 */
-        position: fixed; /* 悬浮固定定位 */
-        bottom: 30px; /* 距离底部 30 像素 */
-        right: 30px; /* 距离右侧 30 像素 */
-        z-index: 99; /* 保证它在所有图片的最上层 */
-        background-color: #d81b60; /* 你的专属粉色 */
-        color: white; /* 文字白色 */
-        border: none; /* 去掉默认边框 */
-        width: 50px; /* 按钮宽度 */
-        height: 50px; /* 按钮高度 */
-        border-radius: 50%; /* 变成圆形 */
-        font-size: 24px; /* 箭头大小 */
-        cursor: pointer; /* 鼠标放上去变成小手 */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 加一点阴影显得立体 */
-    }
-    #backToTopBtn:hover {
-        background-color: #ad1457; /* 鼠标悬停时颜色变深 */
-    }
-</style>
-
-<!-- 3. JavaScript 行为：控制按钮的显示和点击效果 -->
-<script>
-    const topBtn = document.getElementById("backToTopBtn");
-
-    // 监听滚动事件
-    window.onscroll = function() {
-        // 如果页面往下滚动了 200 像素
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            topBtn.style.display = "block"; // 显示按钮
-        } else {
-            topBtn.style.display = "none"; // 否则隐藏按钮
+    <!-- 悬浮返回顶部按钮 -->
+    <button id="backToTopBtn" title="返回顶部">↑</button>
+    <style>
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-    };
+    </style>
+    <script>
+        const topBtn = document.getElementById("backToTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+        topBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
 
-    // 监听点击事件
-    topBtn.onclick = function() {
-        // 让页面平滑滚动回最顶部
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
