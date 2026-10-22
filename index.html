@@ -83,5 +83,76 @@
     <!-- 返回主页的按钮 -->
     <a href="https://94lanka94-netizen.github.io/NO.1-Lanka/" class="back-link">返回我的主页</a>
 
+    <!-- 1. HTML 结构：一个隐藏的按钮 -->
+<button id="backToTopBtn" title="返回顶部">↑</button>
+
+<!-- 2. CSS 样式：控制按钮的长相和位置 -->
+<style>
+    #backToTopBtn {
+        display: none; /* 默认隐藏，没滑动时看不见 */
+        position: fixed; /* 悬浮固定定位 */
+        bottom: 30px; /* 距离底部 30 像素 */
+        right: 30px; /* 距离右侧 30 像素 */
+        z-index: 99; /* 保证它在所有图片的最上层 */
+        background-color: #d81b60; /* 你的专属粉色 */
+        color: white; /* 文字白色 */
+        border: none; /* 去掉默认边框 */
+        width: 50px; /* 按钮宽度 */
+        height: 50px; /* 按钮高度 */
+        border-radius: 50%; /* 变成圆形 */
+        font-size: 24px; /* 箭头大小 */
+        cursor: pointer; /* 鼠标放上去变成小手 */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 加一点阴影显得立体 */
+    }
+    #backToTopBtn:hover {
+        background-color: #ad1457; /* 鼠标悬停时颜色变深 */
+    }
+</style>
+
+<!-- 3. JavaScript 行为：控制按钮的显示和点击效果 -->
+<script>
+    const topBtn = document.getElementById("backToTopBtn");
+
+    // 监听滚动事件
+    window.onscroll = function() {
+        // 如果页面往下滚动了 200 像素
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            topBtn.style.display = "block"; // 显示按钮
+        } else {
+            topBtn.style.display = "none"; // 否则隐藏按钮
+        }
+    };
+
+    // 监听点击事件
+    topBtn.onclick = function() {
+        // 让页面平滑滚动回最顶部
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
